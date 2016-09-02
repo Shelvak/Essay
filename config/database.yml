@@ -1,0 +1,20 @@
+defaults: &defaults
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: essays
+  password: essays
+
+development:
+  <<: *defaults
+  database: essays_development
+
+test:
+  <<: *defaults
+  database: essays_test
+  username: <%= ENV['TRAVIS'] ? 'postgres' : 'essays' %>
+  password: <%= ENV['TRAVIS'] ? '' : 'essays' %>
+
+production:
+  <<: *defaults
+  database: essays_production
