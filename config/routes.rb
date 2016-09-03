@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :essays
   require 'sidekiq/web'
 
   devise_for :users

@@ -7,11 +7,23 @@
 
   activerecord:
     models:
+      essay:
+        one: 'Ensayo'
+        other: 'Ensayos'
+      sample:
+        one: 'Muestra'
+        other: 'Muestras'
       user:
         one: 'Usuario'
         other: 'Usuarios'
 
     attributes:
+      essay:
+        title: 'Titulo'
+        user: 'Creador'
+      sample:
+        quantity: 'Cantidad'
+        element: 'Elemento'
       user:
         name: 'Nombre'
         lastname: 'Apellido'
@@ -56,6 +68,17 @@
       empty_search:
         title:
           html: 'La búsqueda de <span class="label label-inverse">%{search}</span> no obtuvo ningún resultado.'
+    essays:
+      index_title: 'Listado de ensayos'
+      show_title: 'Detalle de ensayo'
+      new_title: 'Nuevo ensayo'
+      edit_title: 'Modificar ensayo'
+      correctly_created: 'Ensayo agregado correctamente.'
+      correctly_updated: 'Ensayo actualizado correctamente.'
+      stale_object_error: 'El ensayo no pudo ser actualizado, intente nuevamente.'
+      empty_index:
+        html: 'No se ha creado ningún ensayo hasta el momento, si quiere puede hacerlo desde el botón <span class="label label-info">Nuevo ensayo</span>'
+      new: 'Nuevo ensayo'
     users:
       index_title: 'Listado de usuarios'
       show_title: 'Detalle de usuario'

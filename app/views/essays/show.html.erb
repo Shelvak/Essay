@@ -1,0 +1,27 @@
+<h2><%= @essay %></h2>
+
+<p>
+  <strong><%= Essay.human_attribute_name 'user' %></strong>:
+  <%= @essay.user %>
+</p>
+
+<h3><%= Sample.model_name.human %></h3>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <th> <%= Sample.human_attribute_name 'element' %> </th>
+    <th> <%= Sample.human_attribute_name 'quantity' %> </th>
+  </thead>
+  <tbody>
+    <% @samples.each do |sample| %>
+      <tr>
+        <td> <%= sample.element %></td>
+        <td> <%= sample.quantity %></td>
+      </tr>
+    <% end %>
+</table>
+
+<div class="panel-footer">
+  <%= link_to t('label.edit'), edit_essay_path(@essay) if can? :update, @essay %> |
+  <%= link_to t('label.list'), essays_path %>
+</div>

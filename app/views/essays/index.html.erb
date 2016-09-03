@@ -1,0 +1,34 @@
+<% if @essays.empty? %>
+  <%= render 'shared/empty_index' %>
+<% else %>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%= Essay.human_attribute_name 'title' %></th>
+        <th><%= Essay.human_attribute_name 'user' %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @essays.each do |essay| %>
+        <tr>
+          <td><%= essay.title %></td>
+          <td><%= essay.user %></td>
+          <td><%= link_to_show essay %></td>
+          <td><%= link_to_edit edit_essay_path(essay) if can? :update, essay %></td>
+          <td><%= link_to_destroy essay if can? :destroy, essay %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @essays %>
+<% end %>
+
+<div class="panel-footer">
+  <%= link_to(
+    t('view.essays.new', default: :'label.new'),
+    new_essay_path, class: 'btn btn-primary'
+  ) if can? :create, Essay %>
+</div>

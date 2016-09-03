@@ -1,0 +1,28 @@
+<%= simple_form_for(@essay) do |f| %>
+  <%= render 'shared/error_explanation', f: f %>
+
+  <div class="form-inputs">
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :title %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <%= Sample.human_attribute_name 'element' %>
+      </div>
+      <div class="col-md-3">
+        <%= Sample.human_attribute_name 'quantity' %>
+      </div>
+    </div>
+    <%= f.simple_fields_for :samples do |ef| %>
+      <%= render 'sample', locals: { f: ef } %>
+    <% end %>
+    <%= link_to_add_fields 'Agregar', f, :samples %>
+  </div>
+
+  <div class="panel-footer">
+    <div class="pull-right"><%= yield :form_actions %></div>
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

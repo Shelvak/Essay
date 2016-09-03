@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
     format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i },
     allow_nil: true, allow_blank: true, uniqueness: { case_sensitive: false }
 
+  has_many :essays
+
   def to_s
     [self.name, self.lastname].compact.join(' ')
   end
