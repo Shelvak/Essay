@@ -10,13 +10,13 @@ gem 'validates_timeliness'
 
 # Auth & Mailing Gems
 gem 'devise'
-gem 'devise-async'
+#gem 'devise-async'
 gem 'cancancan'
 gem 'role_model'
-gem 'sidekiq'
+#gem 'sidekiq'
 # needed for sidekiq-web
-gem 'sinatra', github: 'sinatra/sinatra', require: false
-gem 'rack-protection', github: 'sinatra/rack-protection', require: false
+#gem 'sinatra', github: 'sinatra/sinatra', require: false
+#gem 'rack-protection', github: 'sinatra/rack-protection', require: false
 
 # Assets group
 gem 'sass-rails'
