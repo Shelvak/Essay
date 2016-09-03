@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :shifts
   resources :essays
-  require 'sidekiq/web'
+  #require 'sidekiq/web'
 
   devise_for :users
 
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   root to: redirect('/users/sign_in')
 
-  authenticate :user, ->(u) { u.admin? } do
-    mount Sidekiq::Web => '/sidekiq'
-  end
+  #authenticate :user, ->(u) { u.admin? } do
+  #  mount Sidekiq::Web => '/sidekiq'
+  #end
 end
