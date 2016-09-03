@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
     allow_nil: true, allow_blank: true, uniqueness: { case_sensitive: false }
 
   has_many :essays
+  has_many :shifts
 
   def to_s
     [self.name, self.lastname].compact.join(' ')

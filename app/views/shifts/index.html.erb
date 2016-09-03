@@ -1,0 +1,36 @@
+<% if @shifts.empty? %>
+  <%= render 'shared/empty_index' %>
+<% else %>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%= Shift.human_attribute_name 'start_at' %></th>
+        <th><%= Shift.human_attribute_name 'finish_at' %></th>
+        <th><%= Shift.human_attribute_name 'user' %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @shifts.each do |shift| %>
+        <tr>
+          <td><%= shift.start_at %></td>
+          <td><%= shift.finish_at %></td>
+          <td><%= shift.user %></td>
+          <td><%= link_to_show shift %></td>
+          <td><%= link_to_edit edit_shift_path(shift) if can? :update, shift %></td>
+          <td><%= link_to_destroy shift if can? :destroy, shift %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @shifts %>
+<% end %>
+
+<div class="panel-footer">
+  <%= link_to(
+    t('view.shifts.new', default: :'label.new'),
+    new_shift_path, class: 'btn btn-primary'
+  ) if can? :create, Shift %>
+</div>

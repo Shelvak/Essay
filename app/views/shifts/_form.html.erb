@@ -1,0 +1,17 @@
+<%= simple_form_for(@shift) do |f| %>
+  <%= render 'shared/error_explanation', f: f %>
+
+  <div class="form-inputs">
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :start_at, as: :datetime_picker %>
+        <%= f.input :finish_at, as: :datetime_picker %>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-footer">
+    <div class="pull-right"><%= yield :form_actions %></div>
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

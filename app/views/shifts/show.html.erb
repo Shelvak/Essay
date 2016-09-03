@@ -1,0 +1,19 @@
+<h2><%= @shift %></h2>
+
+<p>
+  <strong><%= Shift.human_attribute_name 'start_at' %></strong>:
+  <%= @shift.start_at %>
+</p>
+<p>
+  <strong><%= Shift.human_attribute_name 'finish_at' %></strong>:
+  <%= @shift.finish_at %>
+</p>
+<p>
+  <strong><%= Shift.human_attribute_name 'user' %></strong>:
+  <%= @shift.user %>
+</p>
+
+<div class="panel-footer">
+  <%= link_to t('label.edit'), edit_shift_path(@shift) if can? :update, @shift %> |
+  <%= link_to t('label.list'), shifts_path %>
+</div>
