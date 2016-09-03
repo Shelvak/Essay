@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
   before_action :set_paper_trail_whodunnit, :check_shifts
+  before_action :configure_permitted_parameters, if: :devise_controller?
   after_action -> { expires_now if user_signed_in? }
 
   def user_for_paper_trail
@@ -17,6 +18,13 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(
+      :sign_up,
+      keys: [:name, :lastname, :password, :password_confirmation, :email]
+    )
+  end
+
   # Overwriting the sign_out redirect path method
   def after_sign_out_path_for(resource_or_scope)
     new_user_session_path
@@ -24,7 +32,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     create_shift
-    users_path
+    essays_path
   end
 
   def redirect_to_stale(shift)

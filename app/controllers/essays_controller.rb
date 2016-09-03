@@ -1,6 +1,10 @@
 class EssaysController < ApplicationController
   before_action :set_essay, only:  [:show, :edit, :update, :destroy]
   before_action :set_user
+  before_action :authenticate_user!
+
+  check_authorization
+  load_and_authorize_resource
 
   # GET /essays
   def index
@@ -75,6 +79,6 @@ class EssaysController < ApplicationController
     end
 
     def essay_params
-      params.require(:essay).permit(:title, samples_attributes: [:element, :quantity])
+      params.require(:essay).permit(:title, samples_attributes: [:element, :quantity, :id])
     end
 end

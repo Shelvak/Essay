@@ -16,7 +16,7 @@
       </div>
     </div>
     <%= f.simple_fields_for :samples do |ef| %>
-      <%= render 'sample', locals: { f: ef } %>
+      <%= render partial: 'sample', locals: { f: ef } %>
     <% end %>
     <%= link_to_add_fields 'Agregar', f, :samples %>
   </div>

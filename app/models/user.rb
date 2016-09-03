@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_paper_trail
 
   devise :database_authenticatable, :recoverable, :rememberable, :trackable,
-    :validatable
+    :validatable, :registerable
 
   # Default order
   default_scope { order("#{table_name}.lastname ASC") }

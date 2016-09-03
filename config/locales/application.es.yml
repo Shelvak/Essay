@@ -21,6 +21,7 @@
       essay:
         title: 'Titulo'
         user: 'Creador'
+        samples: 'Muestras'
       sample:
         quantity: 'Cantidad'
         element: 'Elemento'
@@ -79,6 +80,7 @@
       empty_index:
         html: 'No se ha creado ningún ensayo hasta el momento, si quiere puede hacerlo desde el botón <span class="label label-info">Nuevo ensayo</span>'
       new: 'Nuevo ensayo'
+      need_at_least_one_sample: 'Necesita al menos una muestra.'
     users:
       index_title: 'Listado de usuarios'
       show_title: 'Detalle de usuario'

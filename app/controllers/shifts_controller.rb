@@ -1,10 +1,14 @@
 class ShiftsController < ApplicationController
   before_action :set_shift, only:  [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+
+  check_authorization
+  load_and_authorize_resource
 
   # GET /shifts
   def index
     @title = t('view.shifts.index_title')
-    @shifts = Shift.all.page(params[:page])
+    @shifts = shifts_scope.all.page(params[:page])
   end
 
   # GET /shifts/1
@@ -15,7 +19,7 @@ class ShiftsController < ApplicationController
   # GET /shifts/new
   def new
     @title = t('view.shifts.new_title')
-    @shift = Shift.new
+    @shift = shifts_scope.new
   end
 
   # GET /shifts/1/edit
@@ -26,7 +30,7 @@ class ShiftsController < ApplicationController
   # POST /shifts
   def create
     @title = t('view.shifts.new_title')
-    @shift = Shift.new(shift_params)
+    @shift = shifts_scope.new(shift_params)
 
     respond_to do |format|
       if @shift.save
@@ -61,7 +65,11 @@ class ShiftsController < ApplicationController
   private
 
     def set_shift
-      @shift = Shift.find(params[:id])
+      @shift = shifts_scope.find(params[:id])
+    end
+
+    def shifts_scope
+      current_user.admin? ? Shift.all : current_user.shifts
     end
 
     def shift_params
