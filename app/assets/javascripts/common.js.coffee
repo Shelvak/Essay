@@ -12,23 +12,33 @@ jQuery ($) ->
     $(this).find('.dropdown-toggle').addClass('disabled')
 
   $(document).on 'focus keydown click', 'input[data-date-picker]', ->
-    $input = $(this)
-    format = $input.data('dateTime') ? 'L LT' : 'L'
-    locale = {
-      format:      format,
-      applyLabel:  $input.data('dateLocaleApply'),
-      cancelLabel: $input.data('dateLocaleCancel')
-    }
-    options = {
-      locale:              locale,
-      autoApply:           true,
-      singleDatePicker:    !  $input.data('dateRange'),
-      timePicker:          !! $input.data('dateTime'),
-      timePicker24Hour:    true,
-      timePickerIncrement: 5
-    }
+    $(this).datepicker
+      showOn: 'both',
+      onSelect: -> $(this).datepicker('hide')
+    .removeAttr('data-date-picker').focus()
 
-    $input
-      .daterangepicker(options)
-      .removeAttr('data-date-picker')
-      .focus()
+  $(document).on 'focus keydown click', 'input[data-datetime-picker]', ->
+    if this.value != ''
+      [hour, minutes] = this.value.split(' ')[1].split(':')
+    else
+      now = new Date()
+      [hour, minutes] = [now.getHours(), now.getMinutes()]
+
+    $(this).datetimepicker
+      timeFormat: 'hh:mm',
+      stepHour: 1,
+      stepMinute: 5,
+      hour: hour,
+      minute: minutes
+    .removeAttr('data-datetime-picker').focus()
+
+  # Due to a bug in jQuery UI, nasty hack...
+  $(document).on 'page:change', ->
+    $('.hasDatepicker').attr('data-date-picker', true)
+      .datepicker('destroy').removeClass('hasDatepicker')
+
+    $('.hasDatepicker').attr('data-datetime-picker', true)
+      .datetimepicker('destroy').removeClass('hasDatepicker')
+
+    $.datepicker.initialized = false
+

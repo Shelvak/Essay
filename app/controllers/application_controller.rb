@@ -40,19 +40,22 @@ class ApplicationController < ActionController::Base
   end
 
   def check_shifts
-    return unless current_user
+    if !current_user || ['shifts', 'sessions'].include?(controller_name)
+      return
+    end
     stale = current_user.shifts.stale
     if session[:stale_shift] && stale.present?
-      redirect_to_stale(stale)
+      redirect_to_stale(stale.last)
+    else
+      session[:stale_shift] = nil
     end
   end
 
   def create_shift
     shifts = current_user.shifts
 
-    if (stale = shifts.stale).present?
+    if shifts.stale.present?
       session[:stale_shift] = true
-      redirect_to_stale(stale.last)
     end
 
     unless shifts.pending.present?

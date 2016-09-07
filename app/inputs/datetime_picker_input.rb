@@ -25,10 +25,7 @@ class DatetimePickerInput < SimpleForm::Inputs::Base
 
     def default_data_options
       {
-        date_picker:        true,
-        date_time:          true,
-        date_locale_apply:  I18n.t('datepicker.apply'),
-        date_locale_cancel: I18n.t('datepicker.cancel')
+        datetime_picker:          true
       }
     end
 end
