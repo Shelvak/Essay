@@ -13,6 +13,9 @@
       sample:
         one: 'Muestra'
         other: 'Muestras'
+      shift:
+        one: 'Turno'
+        other: 'Turnos'
       user:
         one: 'Usuario'
         other: 'Usuarios'
@@ -25,6 +28,9 @@
       sample:
         quantity: 'Cantidad'
         element: 'Elemento'
+      shift:
+        start_at: 'Comienzo'
+        finish_at: 'Final'
       user:
         name: 'Nombre'
         lastname: 'Apellido'
@@ -57,6 +63,7 @@
   menu:
     actions:
       logout: 'Salir de la aplicación'
+    reports_samples: 'Reporte'
     users: 'Usuarios'
 
   messages:
@@ -69,6 +76,11 @@
       empty_search:
         title:
           html: 'La búsqueda de <span class="label label-inverse">%{search}</span> no obtuvo ningún resultado.'
+    commons:
+      date_filter:
+        apply: "Aplicar"
+        end: "Fin"
+        start: "Inicio"
     essays:
       index_title: 'Listado de ensayos'
       show_title: 'Detalle de ensayo'
@@ -81,6 +93,19 @@
         html: 'No se ha creado ningún ensayo hasta el momento, si quiere puede hacerlo desde el botón <span class="label label-info">Nuevo ensayo</span>'
       new: 'Nuevo ensayo'
       need_at_least_one_sample: 'Necesita al menos una muestra.'
+    reports:
+      samples: 'Reportes de muestras'
+    shifts:
+      index_title: 'Listado de turnos'
+      show_title: 'Detalle de turno'
+      new_title: 'Nuevo turno'
+      edit_title: 'Modificar turno'
+      correctly_created: 'Turno agregado correctamente.'
+      correctly_updated: 'Turno actualizado correctamente.'
+      stale_object_error: 'El turno no pudo ser actualizado, intente nuevamente.'
+      empty_index:
+        html: 'No se ha creado ningún turno hasta el momento, si quiere puede hacerlo desde el botón <span class="label label-info">Nuevo turno</span>'
+      new: 'Nuevo turno'
     users:
       index_title: 'Listado de usuarios'
       show_title: 'Detalle de usuario'

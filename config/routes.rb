@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :shifts
   resources :essays
   #require 'sidekiq/web'
+  get '/reports/samples', to: 'reports#samples'
 
   devise_for :users
 

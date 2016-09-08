@@ -18,6 +18,7 @@
         <%= menu_item_for User, users_path %>
         <%= menu_item_for Essay, essays_path %>
         <%= menu_item_for Shift, shifts_path %>
+        <%= custom_menu_item_for :report, 'reports_samples', reports_samples_path %>
       </ul>
 
       <%= render partial: 'shared/nav_search' %>

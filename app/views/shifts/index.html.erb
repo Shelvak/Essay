@@ -14,8 +14,8 @@
     <tbody>
       <% @shifts.each do |shift| %>
         <tr>
-          <td><%= shift.start_at %></td>
-          <td><%= shift.finish_at %></td>
+          <td><%= l shift.start_at, format: :minimal %></td>
+          <td><%= l(shift.finish_at, format: :minimal) if shift.finish_at %></td>
           <td><%= shift.user %></td>
           <td><%= link_to_show shift %></td>
           <td><%= link_to_edit edit_shift_path(shift) if can? :update, shift %></td>

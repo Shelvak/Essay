@@ -8,7 +8,7 @@ class ShiftsController < ApplicationController
   # GET /shifts
   def index
     @title = t('view.shifts.index_title')
-    @shifts = shifts_scope.all.page(params[:page])
+    @shifts = shifts_scope.page(params[:page])
   end
 
   # GET /shifts/1

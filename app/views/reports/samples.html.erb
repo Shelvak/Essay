@@ -1,0 +1,18 @@
+<%= render 'shared/date_filter', from_date: @from_date, to_date: @to_date %>
+
+<% if @samples.any? %>
+  <table class="table table-striped table-borderd">
+    <thead>
+      <th> <%= Sample.human_attribute_name 'element' %></th>
+      <th> <%= Sample.human_attribute_name 'quantity' %></th>
+    </thead>
+    <tbody>
+      <% @samples.each do |sample| %>
+        <tr>
+          <td> <%= sample.element %> </td>
+          <td> <%= sample.quantity %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

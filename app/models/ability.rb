@@ -2,7 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    user ? user_rules(user) : default_rules
+    user ? user_rules(user) : nil
   end
 
   def user_rules(user)
