@@ -1,12 +1,6 @@
 class ApplicationController < ActionController::Base
   include Application::CancanStrongParameters
 
-  Warden::Manager.before_logout do |user,auth,opts|
-    if (pending = user.shifts.pending).present?
-      pending.last.close!
-    end
-  end
-
   protect_from_forgery
   before_action :set_paper_trail_whodunnit, :check_shifts
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -43,9 +37,11 @@ class ApplicationController < ActionController::Base
     if !current_user || ['shifts', 'sessions'].include?(controller_name)
       return
     end
+
+    create_shift
     stale = current_user.shifts.stale
     if session[:stale_shift] && stale.present?
-      redirect_to_stale(stale.last)
+      redirect_to_stale(stale.last); return
     else
       session[:stale_shift] = nil
     end

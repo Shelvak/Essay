@@ -24,11 +24,11 @@
       <div class="panel panel-default">
         <div class="panel-heading"><h1 class="main"><%= @title %></h1></div>
         <div class="panel-body">
-
           <%= yield %>
         </div>
       </div>
     </div>
+    <%= render 'shared/quit' %>
   </body>
   <footer>
     <%= render 'shared/flash' if flash_message %>
