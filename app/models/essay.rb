@@ -5,6 +5,9 @@ class Essay < ActiveRecord::Base
   belongs_to :client
   has_many :samples
 
+  scope :by_client, ->(client_id) { where(client_id: client_id) }
+  scope :by_user, ->(user_id) { where(user_id: user_id) }
+
   validates :title, presence: true
   validates :samples, length: { minimum: 1, message: I18n.t('view.essays.need_at_least_one_sample') }
   before_validation :mark_for_destroy

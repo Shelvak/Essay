@@ -9,7 +9,7 @@ class EssaysController < ApplicationController
   # GET /essays
   def index
     @title = t('view.essays.index_title')
-    @essays = essays_scope.all.page(params[:page])
+    @essays = essays_scope.order(id: :desc).page(params[:page])
   end
 
   # GET /essays/1
@@ -75,7 +75,16 @@ class EssaysController < ApplicationController
     end
 
     def essays_scope
-      current_user.admin? ? Essay.all : current_user.essays
+      if current_user.admin?
+        case
+          when params[:user_id] then Essay.by_user(params[:user_id])
+          when params[:client_id] then Essay.by_client(params[:client_id])
+          else
+            Essay.all
+        end
+      else
+        current_user.essays
+      end
     end
 
     def essay_params

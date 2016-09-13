@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :clients
+  resources :clients do
+    resources :essays
+  end
   resources :shifts
   resources :essays
 
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users do
-    resources :shifts
+    resources :shifts, :essays
     member do
       get :edit_profile
       patch :update_profile
