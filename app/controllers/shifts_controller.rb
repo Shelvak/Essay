@@ -68,8 +68,16 @@ class ShiftsController < ApplicationController
       @shift = shifts_scope.find(params[:id])
     end
 
+    def user
+      @user ||= params[:user_id] ? User.find(params[:user_id]) : nil
+    end
+
     def shifts_scope
-      current_user.admin? ? Shift.all : current_user.shifts
+      if current_user.admin?
+        user ? user.shifts : Shift.all
+      else
+        current_user.shifts
+      end
     end
 
     def shift_params

@@ -17,6 +17,12 @@ module LinksHelper
     link_with_icon({ action: 'edit', icon: 'fa-pencil' }, *args)
   end
 
+  def paginate(objects, options = {})
+    options.reverse_merge!( theme: 'twitter-bootstrap-3' )
+
+    super( objects, options )
+  end
+
   private
 
     def link_with_icon(options = {}, *args)

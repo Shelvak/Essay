@@ -1,3 +1,6 @@
+<% if @user %>
+  <h3> <%= @user %></h3>
+<% end %>
 <% if @shifts.empty? %>
   <%= render 'shared/empty_index' %>
 <% else %>
@@ -16,7 +19,7 @@
         <tr>
           <td><%= l shift.start_at, format: :minimal %></td>
           <td><%= l(shift.finish_at, format: :minimal) if shift.finish_at %></td>
-          <td><%= shift.user %></td>
+          <td><%= link_to shift.user, user_shifts_path(shift.user) %></td>
           <td><%= link_to_show shift %></td>
           <td><%= link_to_edit edit_shift_path(shift) if can? :update, shift %></td>
           <td><%= link_to_destroy shift if can? :destroy, shift %></td>
@@ -33,4 +36,7 @@
     t('view.shifts.new', default: :'label.new'),
     new_shift_path, class: 'btn btn-primary'
   ) if can? :create, Shift %>
+  <% if @user %>
+    | <%= link_to t('label.list'), shifts_path %>
+  <% end %>
 </div>

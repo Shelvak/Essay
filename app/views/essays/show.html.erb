@@ -4,6 +4,12 @@
   <strong><%= Essay.human_attribute_name 'user' %></strong>:
   <%= @essay.user %>
 </p>
+<% if @essay.client %>
+  <p>
+    <strong><%= Essay.human_attribute_name 'client' %></strong>:
+    <%= @essay.client %>
+  </p>
+<% end %>
 
 <h3><%= Sample.model_name.human %></h3>
 
