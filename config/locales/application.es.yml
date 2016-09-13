@@ -106,6 +106,11 @@
       empty_index:
         html: 'No se ha creado ningún turno hasta el momento, si quiere puede hacerlo desde el botón <span class="label label-info">Nuevo turno</span>'
       new: 'Nuevo turno'
+      logout:
+        title: "Cerrar sesión"
+        body: "Está por cerrar sesión, ud quiere..."
+        exit: "Solo salir"
+        close_shift: "Terminar turno"
     users:
       index_title: 'Listado de usuarios'
       show_title: 'Detalle de usuario'

@@ -4,6 +4,9 @@ class CustomSessionController < ApplicationController
     if (pending = current_user.shifts.pending).present?
       pending.last.close!
     end
-    redirect_to sign_in_path
+
+    sign_out current_user
+
+    redirect_to new_user_session_path
   end
 end

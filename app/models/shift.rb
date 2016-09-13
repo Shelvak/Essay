@@ -7,7 +7,7 @@ class Shift < ActiveRecord::Base
   scope :pending,     -> { where(finish_at: nil) }
   scope :finished,    -> { where.not(finish_at: nil) }
   scope :stale, -> {
-    pending.where("#{table_name}.start_at < :time_ago", time_ago: 8.hours.ago)
+    pending.where("#{table_name}.start_at < :time_ago", time_ago: 16.hours.ago)
   }
   scope :between, -> (start, finish) { where(start_at: start..finish) }
 

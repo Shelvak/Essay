@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   resources :shifts
   resources :essays
-  #require 'sidekiq/web'
+
   get '/reports/samples', to: 'reports#samples'
+  delete '/users/quit', to: 'custom_session#quit'
 
   devise_for :users
 
@@ -13,9 +14,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: redirect('/users/sign_in')
-
-  #authenticate :user, ->(u) { u.admin? } do
-  #  mount Sidekiq::Web => '/sidekiq'
-  #end
+  root to: 'essays#index'
 end
