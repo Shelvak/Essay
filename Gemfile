@@ -30,9 +30,9 @@ end
 gem 'interactive_editor'
 gem 'awesome_print'
 
+gem 'thin'
 
 group :development do
-  gem 'thin'
   gem 'web-console', '~> 2.0'
   gem 'listen'
 
