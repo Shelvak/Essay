@@ -1,5 +1,5 @@
 Kaminari.configure do |config|
-  config.default_per_page = 5
+  config.default_per_page = 10
   config.window           = 3
   config.left             = 2
   config.right            = 2
