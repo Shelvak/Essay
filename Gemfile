@@ -26,7 +26,6 @@ gem 'turbolinks'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'underscore-rails'
-gem 'bootstrap-kaminari-views'
 
 group :development, :test do
   gem 'byebug'
