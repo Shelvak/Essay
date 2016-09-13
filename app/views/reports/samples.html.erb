@@ -1,18 +1,34 @@
 <%= render 'shared/date_filter', from_date: @from_date, to_date: @to_date %>
 
-<% if @samples.any? %>
-  <table class="table table-striped table-borderd">
-    <thead>
-      <th> <%= Sample.human_attribute_name 'element' %></th>
-      <th> <%= Sample.human_attribute_name 'quantity' %></th>
-    </thead>
-    <tbody>
-      <% @samples.each do |sample| %>
-        <tr>
-          <td> <%= sample.element %> </td>
-          <td> <%= sample.quantity %> </td>
-        </tr>
+<ul class="nav nav-tabs" data-tabs="tabs">
+  <%= tab_for_report t('view.reports.samples.total'), '#total_samples', @samples, true %>
+  <%= tab_for_report t('view.reports.samples.by_client'), '#samples_by_client', @samples_by_client %>
+  <%= tab_for_report t('view.reports.samples.by_user'), '#samples_by_user', @samples_by_user %>
+</ul>
+
+<div class="tab-content">
+  <% if @samples.try(:any?) %>
+    <div id="total_samples" class="tab-pane active">
+      <%= render 'samples', samples: @samples %>
+    </div>
+  <% end %>
+
+  <% if @samples_by_client.try(:any?) %>
+    <div id="samples_by_client" class="tab-pane">
+      <% @samples_by_client.each do |client, samples| %>
+        <h3> <%= Essay.human_attribute_name 'client' %>: <%= client %></h3>
+        <%= render 'samples', samples: samples %>
       <% end %>
-    </tbody>
-  </table>
-<% end %>
+    </div>
+  <% end %>
+
+
+  <% if @samples_by_user.try(:any?) %>
+    <div id="samples_by_user" class="tab-pane">
+      <% @samples_by_user.each do |user, samples| %>
+        <h3> <%= Essay.human_attribute_name 'user' %>: <%= user %></h3>
+        <%= render 'samples', samples: samples %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

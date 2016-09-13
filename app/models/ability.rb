@@ -21,6 +21,7 @@ class Ability
   def regular_rules(user)
     can :manage, Sample
     can :manage, [Shift, Essay], { user_id: user.id }
+    can :read, Client
     can :edit_profile, User
     can :update_profile, User
   end

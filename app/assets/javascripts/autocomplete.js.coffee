@@ -46,6 +46,7 @@ class Autocomplete
 
     @targetElement.val selected.item.id
     @element.val selected.value
+    @element.attr 'readonly', 'readonly'
     @element.trigger type: 'update.autocomplete', element: @element, item: selected.item
 
     false
@@ -58,6 +59,14 @@ class Autocomplete
       success: (data) => @_renderResponse data, response
 
 jQuery ($) ->
-  selector = 'input[data-autocomplete-url]:not([data-observed])'
+  $(document).on 'click', '.js-enable-autocomplete', (e) ->
+    e.preventDefault()
+    parent = $(this).parents('.row')
+    autocompleteInput = parent.find('input.autocomplete')
 
+    if autocompleteInput
+      autocompleteInput.removeAttr('readonly').val('')
+      $(autocompleteInput.data('autocompleteTarget')).val('')
+
+  selector = 'input[data-autocomplete-url]:not([data-observed])'
   $(document).on 'focus', selector, -> new Autocomplete $(this)

@@ -6,6 +6,15 @@
       <div class="col-md-6">
         <%= f.input :title %>
       </div>
+      <div class="col-md-5">
+        <%= f.input :client, as: :autocomplete, url: clients_path %>
+      </div>
+      <div class="col-md-1">
+        <br />
+          <%= link_to '#' do %>
+            <%= content_tag :span, nil, class: 'fa fa-remove js-enable-autocomplete' %>
+          <% end %>
+        </div>
     </div>
     <div class="row">
       <div class="col-md-6">

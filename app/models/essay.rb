@@ -2,6 +2,7 @@ class Essay < ActiveRecord::Base
   has_paper_trail
 
   belongs_to :user
+  belongs_to :client
   has_many :samples
 
   validates :title, presence: true

@@ -7,6 +7,9 @@
 
   activerecord:
     models:
+      client:
+        one: 'Cliente'
+        other: 'Clientes'
       essay:
         one: 'Ensayo'
         other: 'Ensayos'
@@ -21,10 +24,13 @@
         other: 'Usuarios'
 
     attributes:
+      client:
+        name: 'Nombre'
       essay:
         title: 'Titulo'
         user: 'Creador'
         samples: 'Muestras'
+        client: 'Cliente'
       sample:
         quantity: 'Cantidad'
         element: 'Elemento'
@@ -81,6 +87,17 @@
         apply: "Aplicar"
         end: "Fin"
         start: "Inicio"
+    clients:
+      index_title: 'Listado de clientes'
+      show_title: 'Detalle de cliente'
+      new_title: 'Nuevo cliente'
+      edit_title: 'Modificar cliente'
+      correctly_created: 'Cliente agregado correctamente.'
+      correctly_updated: 'Cliente actualizado correctamente.'
+      stale_object_error: 'El cliente no pudo ser actualizado, intente nuevamente.'
+      empty_index:
+        html: 'No se ha creado ningún cliente hasta el momento, si quiere puede hacerlo desde el botón <span class="label label-info">Nuevo cliente</span>'
+      new: 'Nuevo cliente'
     essays:
       index_title: 'Listado de ensayos'
       show_title: 'Detalle de ensayo'
@@ -94,7 +111,11 @@
       new: 'Nuevo ensayo'
       need_at_least_one_sample: 'Necesita al menos una muestra.'
     reports:
-      samples: 'Reportes de muestras'
+      samples:
+        title: 'Reportes de muestras'
+        total: 'Totales'
+        by_client: 'Por cliente'
+        by_user: 'Por usuario'
     shifts:
       index_title: 'Listado de turnos'
       show_title: 'Detalle de turno'

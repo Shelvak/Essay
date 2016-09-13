@@ -1,0 +1,11 @@
+<h2><%= @client %></h2>
+
+<p>
+  <strong><%= Client.human_attribute_name 'name' %></strong>:
+  <%= @client.name %>
+</p>
+
+<div class="panel-footer">
+  <%= link_to t('label.edit'), edit_client_path(@client) if can? :update, @client %> |
+  <%= link_to t('label.list'), clients_path %>
+</div>

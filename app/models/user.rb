@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
   # Default order
   default_scope { order("#{table_name}.lastname ASC") }
 
+  scope :with_essays_between, ->(from, to) { includes(:essays).where(
+    Essay.table_name => { created_at: from..to }
+  ) }
+
   # Validations
   validates :name, presence: true
   validates :name, :lastname, length: { maximum: 255 }, allow_nil: true,
