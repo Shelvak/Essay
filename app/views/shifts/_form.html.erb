@@ -4,7 +4,9 @@
   <div class="form-inputs">
     <div class="row">
       <div class="col-md-6">
-        <%= f.input :start_at, as: :datetime_picker %>
+        <%= f.input :start_at, as: :datetime_picker, input_html: {
+          disabled: !current_user.admin?
+        } %>
         <%= f.input :finish_at, as: :datetime_picker %>
       </div>
     </div>
