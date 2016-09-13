@@ -37,6 +37,7 @@
       shift:
         start_at: 'Comienzo'
         finish_at: 'Final'
+        user: 'Usuario'
       user:
         name: 'Nombre'
         lastname: 'Apellido'
@@ -132,6 +133,7 @@
         body: "Está por cerrar sesión, ud quiere..."
         exit: "Solo salir"
         close_shift: "Terminar turno"
+      worked_time: 'Tiempo trabajado'
     users:
       index_title: 'Listado de usuarios'
       show_title: 'Detalle de usuario'

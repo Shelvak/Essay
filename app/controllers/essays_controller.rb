@@ -79,6 +79,6 @@ class EssaysController < ApplicationController
     end
 
     def essay_params
-      params.require(:essay).permit(:title, samples_attributes: [:element, :quantity, :id])
+      params.require(:essay).permit(:title, :client_id, samples_attributes: [:element, :quantity, :id])
     end
 end

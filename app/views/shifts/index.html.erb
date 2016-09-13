@@ -9,6 +9,7 @@
       <tr>
         <th><%= Shift.human_attribute_name 'start_at' %></th>
         <th><%= Shift.human_attribute_name 'finish_at' %></th>
+        <th><%= t('view.shifts.worked_time') %></th>
         <th><%= Shift.human_attribute_name 'user' %></th>
         <th colspan="3"></th>
       </tr>
@@ -19,6 +20,7 @@
         <tr>
           <td><%= l shift.start_at, format: :minimal %></td>
           <td><%= l(shift.finish_at, format: :minimal) if shift.finish_at %></td>
+          <td><%= human_time_diff(shift.start_at, shift.finish_at) if shift.finish_at %></td>
           <td><%= link_to shift.user, user_shifts_path(shift.user) %></td>
           <td><%= link_to_show shift %></td>
           <td><%= link_to_edit edit_shift_path(shift) if can? :update, shift %></td>
