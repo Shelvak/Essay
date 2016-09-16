@@ -12,7 +12,10 @@
       <div class="col-md-1">
         <br />
           <%= link_to '#' do %>
-            <%= content_tag :span, nil, class: 'fa fa-remove js-enable-autocomplete' %>
+            <%= content_tag :span, nil,
+              class: 'fa fa-remove js-enable-autocomplete',
+              title: t('view.essays.clean_client')
+            %>
           <% end %>
         </div>
     </div>
@@ -28,6 +31,13 @@
       <%= render partial: 'sample', locals: { f: ef } %>
     <% end %>
     <%= link_to_add_fields 'Agregar', f, :samples %>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <%= f.input :comments %>
+      </div>
+    </div>
   </div>
 
   <div class="panel-footer">

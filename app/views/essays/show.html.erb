@@ -10,6 +10,10 @@
     <%= @essay.client %>
   </p>
 <% end %>
+<p>
+  <strong> <%= Essay.human_attribute_name 'comments' %></strong>:
+  <%= simple_format @essay.comments %>
+</p>
 
 <h3><%= Sample.model_name.human %></h3>
 
