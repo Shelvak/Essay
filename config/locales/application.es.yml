@@ -1,156 +1,149 @@
-'es':
-  app_name: 'Essays'
-
-  attributes:
-    created_at: 'Creación'
-    updated_at: 'Actualización'
-
+---
+es:
   activerecord:
-    models:
-      client:
-        one: 'Cliente'
-        other: 'Clientes'
-      essay:
-        one: 'Ensayo'
-        other: 'Ensayos'
-      sample:
-        one: 'Muestra'
-        other: 'Muestras'
-      shift:
-        one: 'Turno'
-        other: 'Turnos'
-      user:
-        one: 'Usuario'
-        other: 'Usuarios'
-
     attributes:
       client:
-        name: 'Nombre'
+        name: "Nombre"
       essay:
-        title: 'Titulo'
-        user: 'Creador'
-        samples: 'Muestras'
-        client: 'Cliente'
-        comments: 'Comentarios'
+        client: "Cliente"
+        comments: "Comentarios"
+        samples: "Muestras"
+        title: "Titulo"
+        user: "Creador"
       sample:
-        quantity: 'Cantidad'
-        element: 'Elemento'
+        element: "Elemento"
+        quantity: "Cantidad"
       shift:
-        start_at: 'Comienzo'
-        finish_at: 'Final'
-        user: 'Usuario'
+        finish_at: "Final"
+        start_at: "Comienzo"
+        user: "Usuario"
       user:
-        name: 'Nombre'
-        lastname: 'Apellido'
-        email: 'Correo'
-        password: 'Contraseña'
-        password_confirmation: 'Confirmación'
+        email: "Correo"
+        lastname: "Apellido"
+        name: "Nombre"
+        password: "Contraseña"
+        password_confirmation: "Confirmación"
+        remember_me: "Recordarme"
+        role: "Perfil"
         roles:
-          one: 'Perfil'
-          other: 'Perfiles'
-        role: 'Perfil'
-        remember_me: 'Recordarme'
-
+          one: "Perfil"
+          other: "Perfiles"
+    models:
+      client:
+        one: "Cliente"
+        other: "Clientes"
+      essay:
+        one: "Ensayo"
+        other: "Ensayos"
+      sample:
+        one: "Muestra"
+        other: "Muestras"
+      shift:
+        one: "Turno"
+        other: "Turnos"
+      user:
+        one: "Usuario"
+        other: "Usuarios"
+  app_name: "Essays"
+  attributes:
+    created_at: "Creación"
+    updated_at: "Actualización"
   errors:
-    title: 'Error'
-    access_denied: 'No tiene permisos para acceder al contenido'
-
+    access_denied: "No tiene permisos para acceder al contenido"
+    title: "Error"
   label:
-    'yes': 'Si'
-    'no': 'No'
-    close: 'Cerrar'
-    delete: 'Eliminar'
-    destroy: 'Eliminar'
-    edit: 'Editar'
-    list: 'Listado'
-    loading: 'Cargando...'
-    new: 'Nuevo'
-    search: 'Buscar'
-    show: 'Ver'
-
+    close: "Cerrar"
+    delete: "Eliminar"
+    destroy: "Eliminar"
+    edit: "Editar"
+    list: "Listado"
+    loading: "Cargando..."
+    new: "Nuevo"
+    "no": "No"
+    search: "Buscar"
+    show: "Ver"
+    "yes": "Si"
   menu:
     actions:
-      logout: 'Salir de la aplicación'
-    reports_samples: 'Reporte'
-    users: 'Usuarios'
-
+      logout: "Salir de la aplicación"
+    reports_samples: "Reporte"
+    users: "Usuarios"
   messages:
-    confirmation: '¿Está seguro?'
-
+    confirmation: "¿Está seguro?"
   view:
-    generic:
+    clients:
+      correctly_created: "Cliente agregado correctamente."
+      correctly_updated: "Cliente actualizado correctamente."
+      edit_title: "Modificar cliente"
       empty_index:
-        html: 'No hay ningún elemento por el momento'
-      empty_search:
-        title:
-          html: 'La búsqueda de <span class="label label-inverse">%{search}</span> no obtuvo ningún resultado.'
+        html: 'No se ha creado ningún cliente hasta el momento, si quiere puede hacerlo desde el botón <span class="label label-info">Nuevo cliente</span>'
+      index_title: "Listado de clientes"
+      new: "Nuevo cliente"
+      new_title: "Nuevo cliente"
+      show_title: "Detalle de cliente"
+      stale_object_error: "El cliente no pudo ser actualizado, intente nuevamente."
     commons:
       date_filter:
         apply: "Aplicar"
         end: "Fin"
         start: "Inicio"
-    clients:
-      index_title: 'Listado de clientes'
-      show_title: 'Detalle de cliente'
-      new_title: 'Nuevo cliente'
-      edit_title: 'Modificar cliente'
-      correctly_created: 'Cliente agregado correctamente.'
-      correctly_updated: 'Cliente actualizado correctamente.'
-      stale_object_error: 'El cliente no pudo ser actualizado, intente nuevamente.'
-      empty_index:
-        html: 'No se ha creado ningún cliente hasta el momento, si quiere puede hacerlo desde el botón <span class="label label-info">Nuevo cliente</span>'
-      new: 'Nuevo cliente'
     essays:
-      index_title: 'Listado de ensayos'
-      show_title: 'Detalle de ensayo'
-      new_title: 'Nuevo ensayo'
-      edit_title: 'Modificar ensayo'
-      correctly_created: 'Ensayo agregado correctamente.'
-      correctly_updated: 'Ensayo actualizado correctamente.'
-      stale_object_error: 'El ensayo no pudo ser actualizado, intente nuevamente.'
+      clean_client: "Limpiar cliente"
+      correctly_created: "Ensayo agregado correctamente."
+      correctly_updated: "Ensayo actualizado correctamente."
+      edit_title: "Modificar ensayo"
       empty_index:
         html: 'No se ha creado ningún ensayo hasta el momento, si quiere puede hacerlo desde el botón <span class="label label-info">Nuevo ensayo</span>'
-      new: 'Nuevo ensayo'
-      need_at_least_one_sample: 'Necesita al menos una muestra.'
-      clean_client: 'Limpiar cliente'
+      index_title: "Listado de ensayos"
+      need_at_least_one_sample: "Necesita al menos una muestra."
+      new: "Nuevo ensayo"
+      new_title: "Nuevo ensayo"
+      show_title: "Detalle de ensayo"
+      stale_object_error: "El ensayo no pudo ser actualizado, intente nuevamente."
+    generic:
+      empty_index:
+        html: "No hay ningún elemento por el momento"
+      empty_search:
+        title:
+          html: "La búsqueda de <span class=\"label label-inverse\">%{search}</span> no obtuvo ningún resultado."
     reports:
       samples:
-        title: 'Reportes de muestras'
-        total: 'Totales'
-        by_client: 'Por cliente'
-        by_user: 'Por usuario'
+        by_client: "Por cliente"
+        by_user: "Por usuario"
+        title: "Reportes de muestras"
+        total: "Totales"
     shifts:
-      index_title: 'Listado de turnos'
-      show_title: 'Detalle de turno'
-      new_title: 'Nuevo turno'
-      edit_title: 'Modificar turno'
-      correctly_created: 'Turno agregado correctamente.'
-      correctly_updated: 'Turno actualizado correctamente.'
-      stale_object_error: 'El turno no pudo ser actualizado, intente nuevamente.'
+      correctly_created: "Turno agregado correctamente."
+      correctly_updated: "Turno actualizado correctamente."
+      edit_title: "Modificar turno"
       empty_index:
         html: 'No se ha creado ningún turno hasta el momento, si quiere puede hacerlo desde el botón <span class="label label-info">Nuevo turno</span>'
-      new: 'Nuevo turno'
+      index_title: "Listado de turnos"
       logout:
-        title: "Cerrar sesión"
         body: "Está por cerrar sesión, ud quiere..."
-        exit: "Solo salir"
         close_shift: "Terminar turno"
-      worked_time: 'Tiempo trabajado'
+        exit: "Solo salir"
+        title: "Cerrar sesión"
+      new: "Nuevo turno"
+      new_title: "Nuevo turno"
+      show_title: "Detalle de turno"
+      stale_object_error: "El turno no pudo ser actualizado, intente nuevamente."
+      worked_time: "Tiempo trabajado"
     users:
-      index_title: 'Listado de usuarios'
-      show_title: 'Detalle de usuario'
-      new_title: 'Nuevo usuario'
-      edit_title: 'Modificar usuario'
-      correctly_created: 'Usuario agregado correctamente.'
-      correctly_updated: 'Usuario actualizado correctamente.'
-      stale_object_error: 'El usuario no pudo ser actualizado, intente nuevamente.'
+      correctly_created: "Usuario agregado correctamente."
+      correctly_updated: "Usuario actualizado correctamente."
+      edit_profile: "Editar perfil"
+      edit_title: "Modificar usuario"
       empty_index:
         html: 'No se ha creado ningún usuario hasta el momento, si quiere puede hacerlo desde el botón <span class="label label-info">Nuevo usuario</span>'
-      new: 'Nuevo usuario'
-      update_profile: 'Actualizar datos'
-      update_password: 'Actualizar contraseña'
-      profile_correctly_updated: 'Actualizaste tus datos correctamente.'
-      edit_profile: 'Editar perfil'
+      index_title: "Listado de usuarios"
+      new: "Nuevo usuario"
+      new_title: "Nuevo usuario"
+      profile_correctly_updated: "Actualizaste tus datos correctamente."
       roles:
-        admin: 'Administrador'
-        regular: 'Normal'
+        admin: "Administrador"
+        regular: "Normal"
+      show_title: "Detalle de usuario"
+      stale_object_error: "El usuario no pudo ser actualizado, intente nuevamente."
+      update_password: "Actualizar contraseña"
+      update_profile: "Actualizar datos"
