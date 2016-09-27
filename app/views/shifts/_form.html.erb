@@ -7,7 +7,9 @@
         <%= f.input :start_at, as: :datetime_picker, input_html: {
           disabled: !current_user.admin?
         } %>
-        <%= f.input :finish_at, as: :datetime_picker %>
+        <%= f.input :finish_at, as: :datetime_picker, input_html: {
+          disabled: @shift.finish_at? && !current_user.admin?
+        }%>
       </div>
     </div>
   </div>

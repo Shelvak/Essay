@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/reports/samples', to: 'reports#samples'
   delete '/users/quit', to: 'custom_session#quit'
 
-  devise_for :users
+  devise_for :users, path_prefix: 'selfservice'
 
   resources :users do
     resources :shifts, :essays

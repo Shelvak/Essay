@@ -22,6 +22,7 @@ class Ability
     can :manage, Sample
     can :manage, [Shift, Essay], { user_id: user.id }
     can :read, Client
+    can :create, Client
     can :edit_profile, User
     can :update_profile, User
   end
