@@ -1,5 +1,29 @@
 = Essays
 
+= App
+- login: admin@essays.com
+- pass: 123456
+
+= VirtualBox Image
+- {VBox ova image/Imagen ova para VBox}[https://mega.nz/#F!D5wmFbrY!l9IcAoPQ87J_8q9W3PhfGQ]
+- linux-login: rotsen/root
+- linux-pass: 321asd
+- "private app port": 4001 <== Can be change to public IP / Se puede asignar una IP pública
+- "ssh port": 4022
+- Daily Backups / Respaldos diarios => ~/backup_postgres
+
+== Files/Archivos md5
+- 97dfac8df1c155244ad757cd12ec95d9  essays-public-completo.ova.7z
+- 1694d68aabf8287cd2640ae8d82cafac  essays-public.ova
+- 2c06ebf7a5b27d8ed321f06a9cf26e53  essays-public.ova.7z.001
+- a461110f74b33147b5f4367475fcecbc  essays-public.ova.7z.002
+- b3a3b3b0f17320e820a2b01fa0972fa6  essays-public.ova.7z.003
+- e30eacae7b0d389098e3a17b5bafb070  essays-public.ova.7z.004
+- 217a2b5138136c293a1d3d76dfa355e2  essays-public.ova.7z.005
+- 8d1d41d67ded0203507e33b66d42b15c  essays-public.ova.7z.006
+- cd4423a452596b05e6d165141092b67b  essays-public.ova.7z.007
+
+
 == (The MIT License)
 
 Copyleft (ɔ) 2016 Néstor Coppi
