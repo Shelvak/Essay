@@ -7,7 +7,7 @@
 = VirtualBox Image
 - {VBox ova image/Imagen ova para VBox}[https://mega.nz/#F!D5wmFbrY!l9IcAoPQ87J_8q9W3PhfGQ]
 - linux-login: rotsen/root
-- linux-pass: 321asd
+- linux-pass: 321asd   # (Or ~321 sorry for that)
 - "private app port": 4001 <== Can be change to public IP / Se puede asignar una IP pública
 - "ssh port": 4022
 - Daily Backups / Respaldos diarios => ~/backup_postgres
